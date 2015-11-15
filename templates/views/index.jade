@@ -1,0 +1,84 @@
+extends ../layouts/default
+
+block content
+	.carousel.slide(data-ride="carousel")
+		ol.carousel-indicators
+			li.active(data-targer="#carousel" data-slide-to="0")
+			li(data-targer="#carousel" data-slide-to="1")
+			li(data-targer="#carousel" data-slide-to="2")
+		.carousel-inner(role="listbox")
+			.item.active
+				img(data-src="holder.js/1200x400")
+			.item
+				img(data-src="holder.js/1200x400")
+			.item
+				img(data-src="holder.js/1200x400")
+		.left.carousel-control(href="#carousel", data-slide="prev", role="button")
+			span.glyphicon.glyphicon-chevron-left(aria-hidden="true")
+			span.sr-only Previous
+		.right.carousel-control(href="#carousel", data-slide="next", role="button")
+			span.glyphicon.glyphicon-chevron-right(aria-hidden="true")
+			span.sr-only Next
+		
+	hr
+	h2 Advantages
+	mixin col
+		.col-xs-6.col-md-3
+			.thumbnail
+				img(data-src="holder.js/300x200")
+				.caption
+					h3 caption
+					p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+
+	+col
+	+col
+	+col
+	+col
+
+	a(href="#") more advantages
+
+	hr
+	h2 Services
+	ul
+		li service 1
+			i.glyphicon.glyphicon-glass
+		li service 2
+			i.glyphicon.glyphicon-glass
+		li service 3
+			i.glyphicon.glyphicon-glass
+		li service 4
+			i.glyphicon.glyphicon-glass
+	a(href="#") more servises
+
+	hr
+
+	h2 Products
+	mixin col
+		.col-xs-6.col-md-4
+			.thumbnail
+				img(data-src="holder.js/400x250")
+				.caption
+					h3 caption
+					p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+
+	+col
+	+col
+	+col
+
+	hr
+	h2 Feedbacks
+	mixin feedback
+		.col-xs-6
+			.thumbnail
+				img(data-src="holder.js/100x100")
+				h4 Jhon Malder
+				p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				i Microsoft
+
+	+feedback
+	+feedback
+
+	hr
+	h2 Map
+	#map
+

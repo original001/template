@@ -1,0 +1,15 @@
+extends ../layouts/default
+
+block content
+	div.container
+		each post in posts
+			div
+				label title /
+				span=  post.title
+			div
+				label description /
+				span=  post.description
+			div
+				label content /
+				span!= post.content || 'нет контента'
+			hr
