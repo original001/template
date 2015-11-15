@@ -7,6 +7,6 @@ exports = module.exports = (req, res) => {
 	
 	locals.section = 'gallery';
 	
-	view.render('galleryItem');
+	view.render('gallery_item');
 };
 			 

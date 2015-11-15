@@ -1,0 +1,16 @@
+#buy.modal.mfp-hide
+    h3 Заказать
+    hr
+    form(action="/buy" method="post")
+        input(type="hidden", name="product", value="product 1")#product-hidden
+        .form-group
+            label Name *
+            input#name(name="name" type="text", placeholder="Name").form-control
+        .form-group
+            label Phone *
+            input#phone(name="phone" type="text", placeholder="Phone").form-control
+        .form-group
+            label Comment
+            textarea#comment(name="comment" type="text").form-control
+        input(type="submit", value="submit").btn.btn-primary
+        input(type="button", value="cancel").js-close-modal.btn.btn-default

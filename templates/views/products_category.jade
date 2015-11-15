@@ -1,0 +1,37 @@
+extends ../layouts/default
+
+block css
+	link(rel="stylesheet", href="/plugins/magnific-popup/dist/magnific-popup.css")
+
+block js
+	script(src="/plugins/magnific-popup/dist/jquery.magnific-popup.min.js")
+	script.
+		$(function(){
+			$('.js-open-modal').magnificPopup({type:'inline'})
+			$('.js-close-modal').click(function(){
+				$.magnificPopup.close();
+			})
+		})
+
+block content
+	.page-header
+		h2 Category of products 1
+	mixin product(name)
+		.col-xs-12.col-md-4
+			.thumbnail
+				h4 Product #{name}
+				a(href="/products/category/product"): img(data-src="holder.js/300x200")
+				.caption
+					p  Lorem ipsum dolor sit amet, consectetur ...
+					p
+						a(href="#buy").js-open-modal.btn.btn-primary buy
+						button.js-close-modal.btn.btn-default more
+	+product('1')
+	+product('2')
+	+product('3')
+	+product('4')
+	+product('5')
+	+product('6')
+	+product('7')
+
+	include ../includes/modal-buy

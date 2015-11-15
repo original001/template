@@ -1,0 +1,46 @@
+extends ../layouts/default
+
+block css
+	link(rel="stylesheet", href="/plugins/magnific-popup/dist/magnific-popup.css")
+
+block js
+	script(src="/plugins/magnific-popup/dist/jquery.magnific-popup.min.js")
+	script.
+		$(function(){
+			$('.js-open-modal').magnificPopup({type:'inline'})
+			$('.js-close-modal').click(function(){
+				$.magnificPopup.close();
+			})
+		})
+
+block content
+	.page-header
+		h2 Product 1
+		a(href="/products") products
+		|  / 
+		a(href="/products/category") category 1
+
+	.col-xs-12.col-md-7
+		img(data-src="holder.js/100px400")
+	.col-xs-12.col-md-5
+		h4 Описание
+		p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo iure sint doloremque, corporis ab explicabo, modi numquam laborum, autem labore distinctio repudiandae molestiae tenetur quaerat. Eaque placeat, tempore praesentium nemo.
+		strong lorems
+		ul 
+			li lorem 1
+			li lorem 2
+			li lorem 3
+			li lorem 4
+			li lorem 5
+			li lorem 6
+			li lorem 7
+		h4 Цена: 5000p.
+		a(href="#buy").js-open-modal.btn.btn-primary Купить
+	.col-xs-12
+		h4 Подробнее
+		p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus modi quas veniam magni temporibus voluptas explicabo expedita dignissimos itaque laborum cupiditate nulla culpa molestiae possimus, voluptatum officiis, esse doloremque maiores.
+		p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus modi quas veniam magni temporibus voluptas explicabo expedita dignissimos itaque laborum cupiditate nulla culpa molestiae possimus, voluptatum officiis, esse doloremque maiores.
+		p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus modi quas veniam magni temporibus voluptas explicabo expedita dignissimos itaque laborum cupiditate nulla culpa molestiae possimus, voluptatum officiis, esse doloremque maiores.
+		p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus modi quas veniam magni temporibus voluptas explicabo expedita dignissimos itaque laborum cupiditate nulla culpa molestiae possimus, voluptatum officiis, esse doloremque maiores.
+
+	include ../includes/modal-buy
