@@ -1,0 +1,26 @@
+extends ../layouts/default
+
+block js
+	//- yandex maps
+	script(src="//api-maps.yandex.ru/2.1/?lang=ru_RU")
+	script(src="/js/yandex.js")
+
+block content
+	.page-header
+		h2 Contacts
+	.col-xs-12.col-xs-8
+		#map
+	.col-xs-12.col-xs-4
+		address
+			strong Twitter, Inc.
+			br
+			| 1355 Market Street, Suite 900
+			br
+			| San Francisco, CA 94103
+			br
+			| Phone: (123) 456-7890
+
+		address
+			strongFull Georg Borisov
+				br
+				a(href="mailto:#") first.last@example.com

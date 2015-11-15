@@ -1,5 +1,10 @@
 extends ../layouts/default
 
+block js
+	//- yandex maps
+	script(src="//api-maps.yandex.ru/2.1/?lang=ru_RU")
+	script(src="/js/yandex.js")
+		
 block content
 	.carousel.slide(data-ride="carousel")
 		ol.carousel-indicators

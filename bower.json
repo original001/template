@@ -1,0 +1,23 @@
+{
+  "name": "template",
+  "description": "",
+  "main": "keystone.js",
+  "authors": [
+    "original001"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/original001/template",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/js/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "magnific-popup": "~1.0.0"
+  }
+}
