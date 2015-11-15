@@ -6,18 +6,27 @@ block js
 	script(src="/js/yandex.js")
 		
 block content
-	.carousel.slide(data-ride="carousel")
+	#carousel.carousel.slide(data-ride="carousel")
 		ol.carousel-indicators
-			li.active(data-targer="#carousel" data-slide-to="0")
-			li(data-targer="#carousel" data-slide-to="1")
-			li(data-targer="#carousel" data-slide-to="2")
+			li.active(data-target="#carousel" data-slide-to="0")
+			li(data-target="#carousel" data-slide-to="1")
+			li(data-target="#carousel" data-slide-to="2")
 		.carousel-inner(role="listbox")
 			.item.active
-				img(data-src="holder.js/1200x400")
+				img(data-src="holder.js/100px400")
+				.carousel-caption
+					h3 Slide 1
+					p caption for slide 1
 			.item
-				img(data-src="holder.js/1200x400")
+				img(data-src="holder.js/100px400")
+				.carousel-caption
+					h3 Slide 1
+					p caption for slide 1
 			.item
-				img(data-src="holder.js/1200x400")
+				img(data-src="holder.js/100px400")
+				.carousel-caption
+					h3 Slide 1
+					p caption for slide 1
 		.left.carousel-control(href="#carousel", data-slide="prev", role="button")
 			span.glyphicon.glyphicon-chevron-left(aria-hidden="true")
 			span.sr-only Previous
@@ -30,7 +39,7 @@ block content
 	mixin col
 		.col-xs-6.col-md-3
 			.thumbnail
-				img(data-src="holder.js/300x200")
+				img(data-src="holder.js/100px200")
 				.caption
 					h3 caption
 					p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
@@ -39,8 +48,6 @@ block content
 	+col
 	+col
 	+col
-
-	a(href="#") more advantages
 
 	hr
 	h2 Services
@@ -61,7 +68,7 @@ block content
 	mixin col
 		.col-xs-6.col-md-4
 			.thumbnail
-				img(data-src="holder.js/400x250")
+				img(data-src="holder.js/100px250")
 				.caption
 					h3 caption
 					p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
@@ -69,6 +76,7 @@ block content
 	+col
 	+col
 	+col
+	a(href="/products") more products
 
 	hr
 	h2 Feedbacks
