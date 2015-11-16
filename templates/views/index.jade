@@ -4,65 +4,66 @@ block js
 	//- yandex maps
 	script(src="//api-maps.yandex.ru/2.1/?lang=ru_RU")
 	script(src="/js/yandex.js")
+	if map.length
+		script.
+			showMap([map.coordX, map.coordY], map.zoom, 'map')
 		
 block content
-	#carousel.carousel.slide(data-ride="carousel")
-		ol.carousel-indicators
-			li.active(data-target="#carousel" data-slide-to="0")
-			li(data-target="#carousel" data-slide-to="1")
-			li(data-target="#carousel" data-slide-to="2")
-		.carousel-inner(role="listbox")
-			.item.active
-				img(data-src="holder.js/100px400")
-				.carousel-caption
-					h3 Slide 1
-					p caption for slide 1
-			.item
-				img(data-src="holder.js/100px400")
-				.carousel-caption
-					h3 Slide 1
-					p caption for slide 1
-			.item
-				img(data-src="holder.js/100px400")
-				.carousel-caption
-					h3 Slide 1
-					p caption for slide 1
-		.left.carousel-control(href="#carousel", data-slide="prev", role="button")
-			span.glyphicon.glyphicon-chevron-left(aria-hidden="true")
-			span.sr-only Previous
-		.right.carousel-control(href="#carousel", data-slide="next", role="button")
-			span.glyphicon.glyphicon-chevron-right(aria-hidden="true")
-			span.sr-only Next
+	if slides.length
+		#carousel.carousel.slide(data-ride="carousel")
+			if slides.length > 1
+				ol.carousel-indicators
+					each slider, ind in slides
+						if ind == 0 
+							li.active(data-target="#carousel" data-slide-to="0")
+						else
+							li(data-target="#carousel" data-slide-to=ind)
+			.carousel-inner(role="listbox")
+				mixin slide(image, title, descr)
+					img(src="/upload/slides/#{image}")
+					.carousel-caption
+						h3= title
+						p= descr
+				each slider, ind in slides
+					if ind == 0
+						.item.active
+							+slide(slider.image.filename, slider.title, slider.description)
+					else
+						.item
+							+slide(slider.image.filename, slider.title, slider.description)
+			if slides.length > 1
+				.left.carousel-control(href="#carousel", data-slide="prev", role="button")
+					span.glyphicon.glyphicon-chevron-left(aria-hidden="true")
+					span.sr-only Previous
+				.right.carousel-control(href="#carousel", data-slide="next", role="button")
+					span.glyphicon.glyphicon-chevron-right(aria-hidden="true")
+					span.sr-only Next
 		
-	hr
-	h2 Advantages
-	mixin col
-		.col-xs-6.col-md-3
-			.thumbnail
-				img(data-src="holder.js/100px200")
-				.caption
-					h3 caption
-					p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+		hr
 
-	+col
-	+col
-	+col
-	+col
+	//- Advantages
 
-	hr
-	h2 Services
-	ul
-		li service 1
-			i.glyphicon.glyphicon-glass
-		li service 2
-			i.glyphicon.glyphicon-glass
-		li service 3
-			i.glyphicon.glyphicon-glass
-		li service 4
-			i.glyphicon.glyphicon-glass
-	a(href="#") more servises
+	if advantages.length
+		h2 Advantages
+		each advantage in advantages
+			.col-xs-6.col-md-3
+				.thumbnail
+					img(src="/upload/advantages/#{advantage.image.filename}")
+					.caption
+						h3= advantage.title
+						p= advantage.description
 
-	hr
+		hr
+
+	if services.length
+		h2 Services
+		ul
+			each service in services
+				li= service.title
+					i.glyphicon(class="glyphicon-#{service.icon}")
+		a(href="#") more servises
+
+		hr
 
 	h2 Products
 	mixin col
@@ -79,19 +80,20 @@ block content
 	a(href="/products") more products
 
 	hr
-	h2 Feedbacks
-	mixin feedback
-		.col-xs-6
-			.thumbnail
-				img(data-src="holder.js/100x100")
-				h4 Jhon Malder
-				p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				i Microsoft
 
-	+feedback
-	+feedback
+	if feedbacks.length
+		h2 Feedbacks
+		each feedback in feedbacks
+			.col-xs-6
+				.thumbnail
+					img(src="/upload/photos/#{feedback.photo.filename}")
+					h4= feedback.name
+					p= feedback.text
+					i= feedback.company
 
-	hr
-	h2 Map
-	#map
+		hr
+
+	if map.length
+		h2 Map
+		#map
 

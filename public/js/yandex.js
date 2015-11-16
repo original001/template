@@ -1,9 +1,9 @@
-$(document).ready(function() {
-    if (document.getElementById('map')) {
+window.showMap = function(coords, zoom, elem){
+    if (document.getElementById(elem)) {
         ymaps.ready(function() {
             var myMap = new ymaps.Map('map', {
-                center: [56.830935, 60.610464],
-                zoom: 16,
+                center: coords,
+                zoom: zoom,
                 controls: []
             })
             myPlacemark = new ymaps.Placemark(myMap.getCenter(), {}, {
@@ -13,4 +13,4 @@ $(document).ready(function() {
             myMap.geoObjects.add(myPlacemark);
         });
     }
-});
+}
