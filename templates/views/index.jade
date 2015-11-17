@@ -6,7 +6,7 @@ block js
 	script(src="/js/yandex.js")
 	if map.length
 		script.
-			showMap([map.coordX, map.coordY], map.zoom, 'map')
+			showMap([#{map[0].coordX}, #{map[0].coordY}], #{map[0].zoom}, "!{map[0].content.replace(/\r\n/g,'')}")
 		
 block content
 	if slides.length

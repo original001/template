@@ -27,9 +27,7 @@ keystone.init({
 
 });
 
-// Load your project's Models
-
-keystone.import('models');
+require('./models');
 
 // Setup common locals for your templates. The following are required for the
 // bundled templates and layouts. Any runtime locals (that should be set uniquely
@@ -49,7 +47,8 @@ keystone.set('routes', require('./routes'));
 // Configure the navigation bar in Keystone's Admin UI
 
 keystone.set('nav', {
-	'users': 'users'
+	'Пользователи': 'users',
+	'Разделы': ['advantages', 'feedbacks', 'services', 'maps', 'sliders']
 });
 
 // Start Keystone to connect to your database and initialise the web server

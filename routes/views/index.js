@@ -11,6 +11,8 @@ exports = module.exports = (req, res) => {
 	var locals = res.locals;
 
 	locals.section = 'home';
+	
+	view.query('map', Map.model.findOne());
 
 	view.query('slides', Slider.model.find());
 

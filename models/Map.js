@@ -2,18 +2,20 @@ var keystone = require('keystone');
 const Types = keystone.Field.Types;
 
 var Map = new keystone.List("Map", {
-	autokey: {path: 'slug', from: 'title', unique: true},
 	map: {name: 'title'},
+	nocreate: true,
+	nodelete: true,
 	label: 'Карта',
-	plural: 'Карты',
+	plural: 'Карта',
 	singular: 'Карта'
 });
 
 Map.add({
-	title: {type: String, label: 'Заголовок', required: true},
-	coordX: {type: Number, label: 'Координата Х', required: true, initial: 0},
-	coordY: {type: Number, label: 'Координата Y', required: true, initial: 0},
-	zoom: {type: Number, label: 'Увеличение', initial: 16}
+	title: {type: String, hidden: true},
+	content: {type: Types.Html, wysiwyg: true, label: 'Текст на карте'},
+	coordX: {type: Number, label: 'Координата Х'},
+	coordY: {type: Number, label: 'Координата Y'},
+	zoom: {type: Number, label: 'Увеличение'}
 });
 
 Map.defaultColumns = 'title, coordX|20%, coordY|20%, zoom|10%';
