@@ -21,6 +21,9 @@ Slider.add({
 		allowedTypes: ['image/png','image/pjpeg','image/tiff','image/jpeg'],
 		filename(item, file){
 			return `${item.id}.${file.extension}`
+		},
+		format(item, file){
+			return '<img src="/upload/slides/'+file.filename+'" style="max-width: 100px; max-height: 100px">'
 		}	
 	}
 });

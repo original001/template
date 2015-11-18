@@ -4,6 +4,7 @@ var Advantages = keystone.list("Advantages");
 var Services = keystone.list("Services");
 var Feedbacks = keystone.list("Feedbacks");
 var Map = keystone.list("Map");
+var ProductCategory = keystone.list("ProductCategory");
 
 exports = module.exports = (req, res) => {
 
@@ -21,8 +22,8 @@ exports = module.exports = (req, res) => {
 	view.query('services', Services.model.find());
 
 	view.query('feedbacks', Feedbacks.model.find());
-
-	view.query('map', Map.model.find());
+	
+	view.query('productCategories', ProductCategory.model.find());
 
 	view.render('index');
 

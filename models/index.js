@@ -4,6 +4,8 @@ require('./Map');
 require('./Services');
 require('./Sliders');
 require('./User');
+require('./Product');
+require('./ProductCategory');
 
 var keystone = require('keystone');
 

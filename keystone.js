@@ -48,7 +48,8 @@ keystone.set('routes', require('./routes'));
 
 keystone.set('nav', {
 	'Пользователи': 'users',
-	'Разделы': ['advantages', 'feedbacks', 'services', 'maps', 'sliders']
+	'Разделы': ['advantages', 'feedbacks', 'services', 'maps', 'sliders'],
+	'Продукты': ['products', 'product-categories']
 });
 
 // Start Keystone to connect to your database and initialise the web server

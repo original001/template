@@ -4,9 +4,9 @@ block js
 	//- yandex maps
 	script(src="//api-maps.yandex.ru/2.1/?lang=ru_RU")
 	script(src="/js/yandex.js")
-	if map.length
+	if map
 		script.
-			showMap([#{map[0].coordX}, #{map[0].coordY}], #{map[0].zoom}, "!{map[0].content.replace(/\r\n/g,'')}")
+			showMap([#{map.coordX}, #{map.coordY}], #{map.zoom}, "!{map.content.replace(/\r\n/g,'')}")
 		
 block content
 	if slides.length
@@ -64,22 +64,20 @@ block content
 		a(href="#") more servises
 
 		hr
-
-	h2 Products
-	mixin col
-		.col-xs-6.col-md-4
-			.thumbnail
-				img(data-src="holder.js/100px250")
-				.caption
-					h3 caption
-					p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-
-	+col
-	+col
-	+col
-	a(href="/products") more products
-
-	hr
+		
+	if productCategories.length	
+		h2 Products
+		each category in productCategories
+			.col-xs-6.col-md-4
+				.thumbnail
+					img(src="/upload/products/#{category.image.filename}")
+					.caption
+						h3= category.title
+						p= category.description
+	
+		a(href="/products") Посмотреть все продукты
+	
+		hr
 
 	if feedbacks.length
 		h2 Feedbacks
@@ -93,7 +91,7 @@ block content
 
 		hr
 
-	if map.length
+	if map
 		h2 Map
 		#map
 
