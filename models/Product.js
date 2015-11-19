@@ -14,7 +14,7 @@ Product.add({
 	about: {type: Types.Html, label: 'Описание', wysiwyg: true},
 	description: {type: Types.Html, label: 'Подробное описание', wysiwyg: true},
 	price: {type: Types.Money, label: 'Цена, руб.', format: '0,0.00'},
-	category: {type: Types.Relationship, ref: 'ProductCategory'},
+	category: {type: Types.Relationship, ref: 'ProductCategory', label: 'Категория'},
 	image: {
 		type: Types.LocalFile, 
 		label: 'Изображение', 
@@ -30,5 +30,5 @@ Product.add({
 	}
 });
 
-Product.defaultColumns = 'title, about|50%, price|15%, image';
+Product.defaultColumns = 'title, category, about|40%, price|15%, image';
 Product.register();

@@ -3,18 +3,11 @@ extends ../layouts/default
 block content
 	.page-header
 		h2 Products
-	mixin product(name)
+	each product in products
 		.col-xs-12.col-md-4
 			.thumbnail
-				h4 Product Category #{name}
-				a(href="/products/category"): img(data-src="holder.js/100px200")
+				h4= product.title
+				a(href="/products/category"): img(src="/upload/products/#{product.image.filename}")
 				.caption
-					p  Lorem ipsum dolor sit amet, consectetur ...
-	+product('1')
-	+product('2')
-	+product('3')
-	+product('4')
-	+product('5')
-	+product('6')
-	+product('7')
+					p= description
 	
